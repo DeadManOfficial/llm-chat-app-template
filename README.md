@@ -1,153 +1,106 @@
-# LLM Chat Application Template
+<div align="center">
 
-A simple, ready-to-deploy chat application template powered by Cloudflare Workers AI. This template provides a clean starting point for building AI chat applications with streaming responses.
+<br>
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/llm-chat-app-template)
+# LLM Chat App Template
 
-<!-- dash-content-start -->
+**Cloudflare Workers AI Chat Template**
 
-## Demo
+Ready-to-deploy chat with streaming responses.
 
-This template demonstrates how to build an AI-powered chat interface using Cloudflare Workers AI with streaming responses. It features:
+<br>
 
-- Real-time streaming of AI responses using Server-Sent Events (SSE)
-- Easy customization of models and system prompts
-- Support for AI Gateway integration
-- Clean, responsive UI that works on mobile and desktop
+<a href="https://github.com/DeadManOfficial/llm-chat-app-template">
+  <img src="https://img.shields.io/badge/GitHub-Source-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+</a>
+<a href="https://workers.cloudflare.com">
+  <img src="https://img.shields.io/badge/Cloudflare-Workers-F38020?style=for-the-badge&logo=cloudflare&logoColor=white" alt="Cloudflare" />
+</a>
+<a href="https://www.typescriptlang.org">
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+</a>
+
+<br><br>
+
+</div>
+
+---
 
 ## Features
 
-- 💬 Simple and responsive chat interface
-- ⚡ Server-Sent Events (SSE) for streaming responses
-- 🧠 Powered by Cloudflare Workers AI LLMs
-- 🛠️ Built with TypeScript and Cloudflare Workers
-- 📱 Mobile-friendly design
-- 🔄 Maintains chat history on the client
-- 🔎 Built-in Observability logging
-<!-- dash-content-end -->
+| Feature | Description |
+|---------|-------------|
+| **Streaming** | Server-Sent Events for real-time responses |
+| **Workers AI** | Cloudflare's LLM platform |
+| **Mobile Ready** | Responsive design |
+| **AI Gateway** | Rate limiting, caching, analytics |
 
-## Getting Started
+---
 
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (v18 or newer)
-- [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/install-and-update/)
-- A Cloudflare account with Workers AI access
-
-### Installation
-
-1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/cloudflare/templates.git
-   cd templates/llm-chat-app
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Generate Worker type definitions:
-   ```bash
-   npm run cf-typegen
-   ```
-
-### Development
-
-Start a local development server:
+## Quick Start
 
 ```bash
+git clone https://github.com/DeadManOfficial/llm-chat-app-template.git
+cd llm-chat-app-template
+npm install
 npm run dev
 ```
 
-This will start a local server at http://localhost:8787.
+Open `http://localhost:8787`
 
-Note: Using Workers AI accesses your Cloudflare account even during local development, which will incur usage charges.
+---
 
-### Deployment
-
-Deploy to Cloudflare Workers:
+## Deploy
 
 ```bash
 npm run deploy
 ```
 
-### Monitor
-
-View real-time logs associated with any deployed Worker:
-
-```bash
-npm wrangler tail
-```
+---
 
 ## Project Structure
 
 ```
-/
-├── public/             # Static assets
-│   ├── index.html      # Chat UI HTML
-│   └── chat.js         # Chat UI frontend script
-├── src/
-│   ├── index.ts        # Main Worker entry point
-│   └── types.ts        # TypeScript type definitions
-├── test/               # Test files
-├── wrangler.jsonc      # Cloudflare Worker configuration
-├── tsconfig.json       # TypeScript configuration
-└── README.md           # This documentation
+public/
+├── index.html    # Chat UI
+└── chat.js       # Frontend script
+src/
+├── index.ts      # Worker entry point
+└── types.ts      # TypeScript types
 ```
 
-## How It Works
+---
 
-### Backend
+## Related
 
-The backend is built with Cloudflare Workers and uses the Workers AI platform to generate responses. The main components are:
+- **[mcp-auditor](https://github.com/DeadManOfficial/mcp-auditor)** — Security auditor for Claude
+- **[token-optimization](https://github.com/DeadManOfficial/token-optimization)** — Save 30-50% on API costs
+- **[AI-Updates](https://github.com/DeadManOfficial/AI-Updates)** — Daily AI intelligence
 
-1. **API Endpoint** (`/api/chat`): Accepts POST requests with chat messages and streams responses
-2. **Streaming**: Uses Server-Sent Events (SSE) for real-time streaming of AI responses
-3. **Workers AI Binding**: Connects to Cloudflare's AI service via the Workers AI binding
+---
 
-### Frontend
+## License
 
-The frontend is a simple HTML/CSS/JavaScript application that:
+MIT
 
-1. Presents a chat interface
-2. Sends user messages to the API
-3. Processes streaming responses in real-time
-4. Maintains chat history on the client side
+---
 
-## Customization
+<div align="center">
 
-### Changing the Model
+<br>
 
-To use a different AI model, update the `MODEL_ID` constant in `src/index.ts`. You can find available models in the [Cloudflare Workers AI documentation](https://developers.cloudflare.com/workers-ai/models/).
+<a href="https://twitter.com/DeadManAI">
+  <img src="https://img.shields.io/badge/X-000000?style=flat&logo=x&logoColor=white" alt="X" />
+</a>
+<a href="https://youtube.com/@DeadManAI">
+  <img src="https://img.shields.io/badge/YouTube-FF0000?style=flat&logo=youtube&logoColor=white" alt="YouTube" />
+</a>
+<a href="https://tiktok.com/@DeadManAI">
+  <img src="https://img.shields.io/badge/TikTok-000000?style=flat&logo=tiktok&logoColor=white" alt="TikTok" />
+</a>
 
-### Using AI Gateway
+<br><br>
 
-The template includes commented code for AI Gateway integration, which provides additional capabilities like rate limiting, caching, and analytics.
+<sub>**BUILD > BUY**</sub>
 
-To enable AI Gateway:
-
-1. [Create an AI Gateway](https://dash.cloudflare.com/?to=/:account/ai/ai-gateway) in your Cloudflare dashboard
-2. Uncomment the gateway configuration in `src/index.ts`
-3. Replace `YOUR_GATEWAY_ID` with your actual AI Gateway ID
-4. Configure other gateway options as needed:
-   - `skipCache`: Set to `true` to bypass gateway caching
-   - `cacheTtl`: Set the cache time-to-live in seconds
-
-Learn more about [AI Gateway](https://developers.cloudflare.com/ai-gateway/).
-
-### Modifying the System Prompt
-
-The default system prompt can be changed by updating the `SYSTEM_PROMPT` constant in `src/index.ts`.
-
-### Styling
-
-The UI styling is contained in the `<style>` section of `public/index.html`. You can modify the CSS variables at the top to quickly change the color scheme.
-
-## Resources
-
-- [Cloudflare Workers Documentation](https://developers.cloudflare.com/workers/)
-- [Cloudflare Workers AI Documentation](https://developers.cloudflare.com/workers-ai/)
-- [Workers AI Models](https://developers.cloudflare.com/workers-ai/models/)
+</div>
